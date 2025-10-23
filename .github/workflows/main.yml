@@ -1,4 +1,4 @@
-name: RDP ALI
+name: RDP
 on:
   workflow_dispatch:
 jobs:
@@ -12,7 +12,7 @@ jobs:
           $decodedNotice = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedNotice))
           Write-Host $decodedNotice
           if (-not $decodedNotice -or $decodedNotice -notlike "*ToolboxLap.xyz*") {
-              Write-Error "Copyright was tampered with or removed â€“ script will not work!"
+              Write-Error "Copyright was tampered with or removed – script will not work!"
               exit 1
           }
 
@@ -99,3 +99,5 @@ jobs:
               Write-Host "[$(Get-Date)] RDP Active - Use Ctrl+C in workflow to terminate"
               Start-Sleep -Seconds 300
           }
+        
+  
